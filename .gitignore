@@ -1,6 +1,4 @@
 # Archivos de configuración sensibles del proyecto nube_web
-web_asm/config/Database.php
-web_asm/config/mongodb.php
 web_asm/config.json
 
 # Variables de entorno
