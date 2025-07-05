@@ -1,5 +1,4 @@
-web_asm/config/Database.php
-web_asm/config/mongodb.php
+web_asm/config
 .env
 
 # Permitir plantillas (archivos de ejemplo)
