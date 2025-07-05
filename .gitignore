@@ -2,6 +2,6 @@ web_asm/config/Database.php
 web_asm/config/mongodb.php
 .env
 
-# Permitir plantillas
-!config/DatabaseExample.php
-!config/mongodbExample.php
+# Permitir plantillas (archivos de ejemplo)
+!web_asm/config/DatabaseExample.php
+!web_asm/config/mongodbExample.php
