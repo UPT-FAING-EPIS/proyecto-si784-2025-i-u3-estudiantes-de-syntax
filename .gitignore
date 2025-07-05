@@ -1,4 +1,14 @@
-# Archivos sensibles
+# Archivos de configuración sensibles del proyecto nube_web
 web_asm/config/Database.php
 web_asm/config/mongodb.php
+web_asm/config.json
+
+# Variables de entorno
 .env
+.env.local
+.env.production
+.env.staging
+
+# Dependencias de Composer
+web_asm/vendor/
+web_asm/composer.lock
