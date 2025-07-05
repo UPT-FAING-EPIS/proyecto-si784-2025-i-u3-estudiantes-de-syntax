@@ -1,6 +1,4 @@
-web_asm/config
+# Archivos sensibles
+web_asm/config/Database.php
+web_asm/config/mongodb.php
 .env
-
-# Permitir plantillas (archivos de ejemplo)
-!web_asm/config/DatabaseExample.php
-!web_asm/config/mongodbExample.php
