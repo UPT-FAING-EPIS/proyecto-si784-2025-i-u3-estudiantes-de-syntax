@@ -2,6 +2,7 @@
 require_once BASE_PATH . '/core/BaseController.php';
 require_once BASE_PATH . '/models/DocenteModel.php';
 require_once BASE_PATH . '/config/mongodb.php';
+require_once BASE_PATH . '/utils/telemetria.php';
 
 class DocenteController extends BaseController {
     

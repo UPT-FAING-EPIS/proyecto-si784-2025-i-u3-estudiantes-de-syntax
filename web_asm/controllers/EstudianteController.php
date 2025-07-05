@@ -1,6 +1,7 @@
 <?php
 require_once BASE_PATH . '/core/BaseController.php';
 require_once BASE_PATH . '/models/EstudianteModel.php';
+require_once BASE_PATH . '/utils/telemetria.php';
 
 class EstudianteController extends BaseController {
     private $estudianteModel;

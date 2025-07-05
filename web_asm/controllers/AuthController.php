@@ -1,5 +1,6 @@
 <?php
 require_once BASE_PATH . '/models/Usuario.php';
+require_once BASE_PATH . '/utils/telemetria.php';
 
 class AuthController extends BaseController {
 
