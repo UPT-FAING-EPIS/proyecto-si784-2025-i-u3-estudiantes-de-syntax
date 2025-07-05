@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'ams_system_php'
+    static_configs:
+      - targets: ['host.docker.internal:80']  # 👈 si usas Windows
+    metrics_path: /web_asm/public/metrics.php

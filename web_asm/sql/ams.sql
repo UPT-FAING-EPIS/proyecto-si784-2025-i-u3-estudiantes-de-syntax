@@ -191,14 +191,17 @@ INSERT INTO `cursos` (`id_curso`, `codigo_curso`, `nombre`, `creditos`, `activo`
 	(30, 'TXD-3015', 'FÚTBOL MIXTO', 1, 1, '2025-07-03 23:21:59', '2025-07-03 23:21:59'),
 	(31, 'EG-382', 'ÉTICA', 3, 1, '2025-07-04 01:47:00', '2025-07-04 02:26:33'),
 	(32, 'SI-080', 'TALLER DE TESIS II / TRABAJO DE INVESTIGACIÓN', 3, 1, '2025-07-04 01:47:00', '2025-07-04 02:26:33'),
-	(33, 'SI-085', 'TALLER DE EMPRENDIMIENTO Y LIDERAZGO', 3, 1, '2025-07-04 01:47:00', '2025-07-04 02:26:33'),
+	(33, 'SI-085', 'TALLER DE EMPRENDIMIENTO Y LIDERAZGO', 3, 1, '2025-07-04 01:47:00', '2025-07-05 22:30:35'),
 	(35, 'SI-886', 'PLANEAMIENTO ESTRATÉGICO DE TI', 3, 1, '2025-07-04 01:47:00', '2025-07-04 02:26:33'),
-	(36, 'SI-983', 'CONSTRUCCIÓN DE SOFTWARE I', 4, 1, '2025-07-04 01:47:00', '2025-07-04 02:26:33'),
-	(37, 'SI-985', 'GESTIÓN DE LA CONFIGURACIÓN DE SOFTWARE', 3, 1, '2025-07-04 01:47:00', '2025-07-04 02:26:33'),
+	(36, 'SI-983', 'CONSTRUCCIÓN DE SOFTWARE I', 4, 1, '2025-07-04 01:47:00', '2025-07-05 22:30:35'),
+	(37, 'SI-985', 'GESTIÓN DE LA CONFIGURACIÓN DE SOFTWARE', 3, 1, '2025-07-04 01:47:00', '2025-07-05 22:30:35'),
 	(48, 'SI-785', 'GESTIÓN DE PROYECTOS DE TI', 4, 1, '2025-07-04 02:28:13', '2025-07-04 02:35:56'),
 	(50, 'SI-581', 'ARQUITECTURA DE COMPUTADORAS', 4, 1, '2025-07-04 02:30:24', '2025-07-04 02:30:24'),
 	(51, 'SI-583', 'DISEÑO Y MODELAMIENTO VIRTUAL', 3, 1, '2025-07-04 02:30:24', '2025-07-04 02:30:24'),
-	(56, 'EG-781', 'PROBLEMAS Y DESAFIOS DEL PERÚ EN UN MUNDO GLOBAL', 3, 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56');
+	(56, 'EG-781', 'PROBLEMAS Y DESAFIOS DEL PERÚ EN UN MUNDO GLOBAL', 3, 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56'),
+	(63, 'SI-981', 'TALLER DE TESIS I', 3, 1, '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(64, 'SI-982', 'PROGRAMACIÓN WEB II', 4, 1, '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(66, 'SI-984', 'REDES Y COMUNICACIÓN DE DATOS II', 3, 1, '2025-07-05 22:30:35', '2025-07-05 22:30:35');
 
 -- Volcando estructura para tabla ams_system.datos_personales
 CREATE TABLE IF NOT EXISTS `datos_personales` (
@@ -216,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `datos_personales` (
   KEY `idx_datos_personales_busqueda` (`nombres`,`apellidos`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla ams_system.datos_personales: ~8 rows (aproximadamente)
+-- Volcando datos para la tabla ams_system.datos_personales: ~10 rows (aproximadamente)
 INSERT INTO `datos_personales` (`id_datos_personales`, `nombres`, `apellidos`, `telefono`, `direccion`, `fecha_nacimiento`, `genero`, `created_at`, `updated_at`) VALUES
 	(19, '', '', NULL, NULL, NULL, NULL, '2025-07-03 20:16:05', '2025-07-03 20:16:05'),
 	(20, 'GREGORY BRANDON', 'HUANCA MERMA', NULL, NULL, NULL, NULL, '2025-07-03 20:22:06', '2025-07-03 22:46:32'),
@@ -227,7 +230,9 @@ INSERT INTO `datos_personales` (`id_datos_personales`, `nombres`, `apellidos`, `
 	(25, 'SEBASTIAN NICOLAS', 'FUENTES AVALOS', NULL, NULL, NULL, NULL, '2025-07-04 02:26:49', '2025-07-04 02:28:13'),
 	(26, 'ANDY MICHAEL', 'CALIZAYA LADERA', NULL, NULL, NULL, NULL, '2025-07-04 02:35:14', '2025-07-04 02:35:55'),
 	(27, '', '', NULL, NULL, NULL, NULL, '2025-07-05 03:30:08', '2025-07-05 03:30:08'),
-	(28, '', '', NULL, NULL, NULL, NULL, '2025-07-05 03:32:56', '2025-07-05 03:32:56');
+	(28, '', '', NULL, NULL, NULL, NULL, '2025-07-05 03:32:56', '2025-07-05 03:32:56'),
+	(29, '', '', NULL, NULL, NULL, NULL, '2025-07-05 21:30:12', '2025-07-05 21:30:12'),
+	(32, 'CAMILA FERNANDA', 'CABRERA CATARI', NULL, NULL, NULL, NULL, '2025-07-05 22:28:27', '2025-07-05 22:30:35');
 
 -- Volcando estructura para tabla ams_system.estudiantes
 CREATE TABLE IF NOT EXISTS `estudiantes` (
@@ -258,7 +263,8 @@ INSERT INTO `estudiantes` (`id_estudiante`, `id_usuario`, `codigo_estudiante`, `
 	(9, 13, '2019063331', 'Ingeniería de Sistemas', 1, 7.29, 1, '2025-07-04 02:26:33', '2025-07-04 02:26:33'),
 	(10, 14, '2022073902', 'Ingeniería de Sistemas', 1, 8.80, 1, '2025-07-04 02:28:13', '2025-07-04 02:28:13'),
 	(11, 11, '2022073504', 'Ingeniería de Sistemas', 1, 8.83, 1, '2025-07-04 02:30:24', '2025-07-04 02:30:24'),
-	(12, 15, '2022074258', 'Ingeniería de Sistemas', 1, 9.67, 1, '2025-07-04 02:35:55', '2025-07-04 02:35:56');
+	(12, 15, '2022074258', 'Ingeniería de Sistemas', 1, 9.67, 1, '2025-07-04 02:35:55', '2025-07-04 02:35:56'),
+	(13, 19, '2021069824', 'Ingeniería de Sistemas', 1, 11.50, 1, '2025-07-05 22:30:35', '2025-07-05 22:30:35');
 
 -- Volcando estructura para tabla ams_system.estudiante_cursos
 CREATE TABLE IF NOT EXISTS `estudiante_cursos` (
@@ -319,7 +325,13 @@ INSERT INTO `estudiante_cursos` (`id_estudiante_curso`, `id_estudiante`, `id_cur
 	(43, 12, 21, 9.00, 'Matriculado', 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56', '2025-07-04 02:35:56'),
 	(44, 12, 22, 7.00, 'Matriculado', 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56', '2025-07-04 02:35:56'),
 	(45, 12, 48, 7.00, 'Matriculado', 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56', '2025-07-04 02:35:56'),
-	(46, 12, 23, 9.00, 'Matriculado', 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56', '2025-07-04 02:35:56');
+	(46, 12, 23, 9.00, 'Matriculado', 1, '2025-07-04 02:35:56', '2025-07-04 02:35:56', '2025-07-04 02:35:56'),
+	(47, 13, 33, 15.00, 'Matriculado', 3, '2025-07-05 22:30:35', '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(48, 13, 63, 12.00, 'Matriculado', 3, '2025-07-05 22:30:35', '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(49, 13, 64, 13.00, 'Matriculado', 3, '2025-07-05 22:30:35', '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(50, 13, 36, 8.00, 'Matriculado', 1, '2025-07-05 22:30:35', '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(51, 13, 66, 14.00, 'Matriculado', 3, '2025-07-05 22:30:35', '2025-07-05 22:30:35', '2025-07-05 22:30:35'),
+	(52, 13, 37, 7.00, 'Matriculado', 1, '2025-07-05 22:30:35', '2025-07-05 22:30:35', '2025-07-05 22:30:35');
 
 -- Volcando estructura para tabla ams_system.inscripciones
 CREATE TABLE IF NOT EXISTS `inscripciones` (
@@ -342,6 +354,24 @@ INSERT INTO `inscripciones` (`id_inscripcion`, `id_clase`, `id_estudiante`, `fec
 	(1, 1, 6, '2025-07-04 00:54:40', 1),
 	(2, 2, 11, '2025-07-04 02:31:56', 1);
 
+-- Volcando estructura para tabla ams_system.logs_telemetria
+CREATE TABLE IF NOT EXISTS `logs_telemetria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) DEFAULT NULL,
+  `rol_usuario` varchar(50) DEFAULT NULL,
+  `accion` varchar(100) NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `modulo` varchar(100) DEFAULT NULL,
+  `fecha` datetime DEFAULT current_timestamp(),
+  `ip_usuario` varchar(45) DEFAULT NULL,
+  `navegador` text DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `logs_telemetria_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla ams_system.logs_telemetria: ~0 rows (aproximadamente)
+
 -- Volcando estructura para tabla ams_system.mentores
 CREATE TABLE IF NOT EXISTS `mentores` (
   `id_mentor` int(11) NOT NULL AUTO_INCREMENT,
@@ -357,11 +387,12 @@ CREATE TABLE IF NOT EXISTS `mentores` (
   KEY `idx_puede_tomar_clase` (`puede_tomar_clase`),
   KEY `idx_calificacion` (`calificacion_promedio`),
   CONSTRAINT `mentores_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla ams_system.mentores: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla ams_system.mentores: ~2 rows (aproximadamente)
 INSERT INTO `mentores` (`id_mentor`, `id_usuario`, `especialidades`, `puede_tomar_clase`, `calificacion_promedio`, `total_clases_dadas`, `created_at`, `updated_at`) VALUES
-	(1, 16, NULL, 1, 0.00, 0, '2025-07-05 14:06:02', '2025-07-05 14:06:02');
+	(1, 16, NULL, 1, 0.00, 0, '2025-07-05 14:06:02', '2025-07-05 14:06:02'),
+	(2, 9, NULL, 1, 0.00, 0, '2025-07-05 19:02:29', '2025-07-05 19:02:29');
 
 -- Volcando estructura para tabla ams_system.roles
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -860,14 +891,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcando datos para la tabla ams_system.usuarios: ~9 rows (aproximadamente)
 INSERT INTO `usuarios` (`id_usuario`, `email`, `password_hash`, `id_datos_personales`, `ultima_actividad`, `email_verificado`, `activo`, `oauth_provider`, `google_id`, `created_at`, `updated_at`) VALUES
 	(8, 'admin', NULL, 19, NULL, 1, 1, b'1', 'google123456789', '2025-07-03 20:16:05', '2025-07-03 20:16:58'),
-	(9, 'gh2022073898@virtual.upt.pe', NULL, 20, '2025-07-05 13:01:34', 1, 1, b'1', '101813332633214491012', '2025-07-03 20:22:06', '2025-07-05 13:01:34'),
+	(9, 'gh2022073898@virtual.upt.pe', NULL, 20, '2025-07-05 21:51:25', 1, 1, b'1', '101813332633214491012', '2025-07-03 20:22:06', '2025-07-05 21:51:25'),
 	(10, 'ar2022073505@virtual.upt.pe', NULL, 21, '2025-07-03 23:21:18', 1, 1, b'1', '118329219399984957613', '2025-07-03 23:21:18', '2025-07-03 23:21:18'),
 	(11, 'jm2022074255@virtual.upt.pe', NULL, 22, '2025-07-04 02:34:10', 1, 1, b'1', '102796260988686898694', '2025-07-03 23:26:11', '2025-07-04 02:34:10'),
 	(13, 'rl2019063331@virtual.upt.pe', NULL, 24, '2025-07-04 02:22:17', 1, 1, b'1', '100574059485395911096', '2025-07-04 02:22:17', '2025-07-04 02:22:17'),
 	(14, 'sf2022073902@virtual.upt.pe', NULL, 25, '2025-07-04 02:26:49', 1, 1, b'1', '118030351119923353936', '2025-07-04 02:26:49', '2025-07-04 02:26:49'),
 	(15, 'ac2022074258@virtual.upt.pe', NULL, 26, '2025-07-04 02:35:14', 1, 1, b'1', '104009791647826496397', '2025-07-04 02:35:14', '2025-07-04 02:35:14'),
-	(16, 'gbhm2003@gmail.com', NULL, 27, '2025-07-05 15:56:27', 1, 1, b'1', '110751935956863197767', '2025-07-05 03:30:08', '2025-07-05 15:56:27'),
-	(17, 'gregorypro159@gmail.com', NULL, 28, '2025-07-05 03:32:56', 1, 1, b'1', '108910060774384921111', '2025-07-05 03:32:56', '2025-07-05 03:32:56');
+	(16, 'gbhm2003@gmail.com', NULL, 27, '2025-07-05 22:32:41', 1, 1, b'1', '110751935956863197767', '2025-07-05 03:30:08', '2025-07-05 22:32:41'),
+	(17, 'gregorypro159@gmail.com', NULL, 28, '2025-07-05 03:32:56', 1, 1, b'1', '108910060774384921111', '2025-07-05 03:32:56', '2025-07-05 20:38:51'),
+	(18, 'gregfhm789@gmail.com', NULL, 29, '2025-07-05 21:30:12', 1, 1, b'1', '105199084368836559736', '2025-07-05 21:30:12', '2025-07-05 21:30:12'),
+	(19, 'cc2021069824@virtual.upt.pe', NULL, 32, '2025-07-05 22:28:27', 1, 1, b'1', '101986760915558095879', '2025-07-05 22:28:27', '2025-07-05 22:28:27');
 
 -- Volcando estructura para tabla ams_system.usuario_roles
 CREATE TABLE IF NOT EXISTS `usuario_roles` (
@@ -883,9 +916,9 @@ CREATE TABLE IF NOT EXISTS `usuario_roles` (
   KEY `idx_activo` (`activo`),
   CONSTRAINT `usuario_roles_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE,
   CONSTRAINT `usuario_roles_ibfk_2` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla ams_system.usuario_roles: ~17 rows (aproximadamente)
+-- Volcando datos para la tabla ams_system.usuario_roles: ~18 rows (aproximadamente)
 INSERT INTO `usuario_roles` (`id_usuario_rol`, `id_usuario`, `id_rol`, `fecha_asignacion`, `activo`) VALUES
 	(3, 8, 1, '2025-07-03 20:16:05', 1),
 	(4, 9, 1, '2025-07-03 20:22:06', 1),
@@ -901,15 +934,19 @@ INSERT INTO `usuario_roles` (`id_usuario_rol`, `id_usuario`, `id_rol`, `fecha_as
 	(16, 15, 1, '2025-07-04 02:35:14', 1),
 	(17, 15, 2, '2025-07-04 02:35:56', 1),
 	(18, 16, 1, '2025-07-05 03:30:08', 1),
-	(19, 16, 4, '2025-07-05 03:32:22', 0),
-	(20, 17, 1, '2025-07-05 03:32:56', 1),
-	(21, 16, 3, '2025-07-05 14:05:34', 1);
+	(19, 16, 4, '2025-07-05 03:32:22', 1),
+	(20, 17, 1, '2025-07-05 20:38:51', 1),
+	(21, 16, 3, '2025-07-05 14:05:34', 1),
+	(22, 9, 3, '2025-07-05 18:55:05', 1),
+	(23, 18, 1, '2025-07-05 21:30:12', 1),
+	(24, 19, 1, '2025-07-05 22:28:27', 1),
+	(25, 19, 2, '2025-07-05 22:30:35', 1);
 
 -- Volcando estructura para vista ams_system.v_usuarios
 -- Creando tabla temporal para superar errores de dependencia de VIEW
 CREATE TABLE `v_usuarios` (
 	`id_usuario` INT(11) NOT NULL,
-	`nombre_completo` VARCHAR(1) NULL COLLATE 'utf8mb4_unicode_ci',
+	`nombre_completo` VARCHAR(1) NOT NULL COLLATE 'utf8mb4_unicode_ci',
 	`nombres` VARCHAR(1) NOT NULL COLLATE 'utf8mb4_unicode_ci',
 	`apellidos` VARCHAR(1) NOT NULL COLLATE 'utf8mb4_unicode_ci',
 	`email` VARCHAR(1) NOT NULL COLLATE 'utf8mb4_unicode_ci',

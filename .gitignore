@@ -8,7 +8,3 @@ web_asm/config.json
 .env.local
 .env.production
 .env.staging
-
-# Dependencias de Composer
-web_asm/vendor/
-web_asm/composer.lock

@@ -916,70 +916,28 @@ class AdminModel {
     }
     public function actualizarUsuarioConRoles($id_usuario, $email, $roles_ids) {
         try {
-            $this->db->beginTransaction();
-
-            $usuario_existe = $this->db->fetchOne(
-                "SELECT id_usuario FROM usuarios WHERE id_usuario = ?", 
-                [$id_usuario]
-            );
+            // Convertir el array de roles a JSON para el procedimiento
+            $roles_json = json_encode($roles_ids);
             
-            if (!$usuario_existe) {
-                throw new Exception('Usuario no encontrado');
+            // Llamar al procedimiento almacenado
+            $sql = "CALL sp_actualizar_usuario_con_roles(?, ?, ?, @p_success, @p_message)";
+            $this->db->execute($sql, [$id_usuario, $email, $roles_json]);
+            
+            // Obtener los resultados del procedimiento
+            $result = $this->db->fetchOne("SELECT @p_success as success, @p_message as message");
+            
+            if (!$result['success']) {
+                throw new Exception($result['message']);
             }
-            
-            // 2. Verificar que el email no esté en uso por otro usuario
-            $sql_check = "SELECT id_usuario FROM usuarios WHERE email = ? AND id_usuario != ?";
-            $existing = $this->db->fetchOne($sql_check, [$email, $id_usuario]);
-            
-            if ($existing) {
-                throw new Exception('El email ya está en uso por otro usuario');
-            }
-            
-            // 3. Actualizar email del usuario
-            $sql_user = "UPDATE usuarios SET email = ?, updated_at = NOW() WHERE id_usuario = ?";
-            $this->db->execute($sql_user, [$email, $id_usuario]);
-            
-            // 4. Desactivar todos los roles actuales
-            $sql_deactivate = "UPDATE usuario_roles SET activo = 0 WHERE id_usuario = ?";
-            $this->db->execute($sql_deactivate, [$id_usuario]);
-            
-            // 5. Asignar nuevos roles
-            foreach ($roles_ids as $id_rol) {
-                // Validar que el rol existe
-                $rol_existe = $this->db->fetchOne(
-                    "SELECT id_rol FROM roles WHERE id_rol = ? AND activo = 1", 
-                    [$id_rol]
-                );
-                
-                if (!$rol_existe) {
-                    throw new Exception("Rol con ID $id_rol no existe o no está activo");
-                }
-                
-                // Verificar si ya existe el registro
-                $sql_check_role = "SELECT id_usuario_rol FROM usuario_roles WHERE id_usuario = ? AND id_rol = ?";
-                $existing_role = $this->db->fetchOne($sql_check_role, [$id_usuario, $id_rol]);
-                
-                if ($existing_role) {
-                    // Activar rol existente
-                    $sql_activate = "UPDATE usuario_roles SET activo = 1, fecha_asignacion = NOW() WHERE id_usuario = ? AND id_rol = ?";
-                    $this->db->execute($sql_activate, [$id_usuario, $id_rol]);
-                } else {
-                    // Crear nuevo registro de rol
-                    $sql_insert = "INSERT INTO usuario_roles (id_usuario, id_rol, fecha_asignacion, activo) VALUES (?, ?, NOW(), 1)";
-                    $this->db->execute($sql_insert, [$id_usuario, $id_rol]);
-                }
-            }
-            
-            $this->db->commit();
             
             // Log de auditoría
-            error_log("Usuario $id_usuario actualizado: email=$email, roles=" . implode(',', $roles_ids));
+            error_log("Usuario $id_usuario actualizado via SP: email=$email, roles=" . implode(',', $roles_ids));
+            error_log("Resultado SP: " . $result['message']);
             
             return true;
             
         } catch (Exception $e) {
-            $this->db->rollback();
-            error_log("Error actualizando usuario con roles: " . $e->getMessage());
+            error_log("Error actualizando usuario con roles via SP: " . $e->getMessage());
             throw $e;
         }
     }

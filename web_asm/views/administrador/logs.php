@@ -1,14 +1,18 @@
 <?php
 require_once BASE_PATH . '/config/Database.php';
 require_once BASE_PATH . '/utils/session_helper.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
-session_start();
-if ($_SESSION['rol'] !== 'admin') {
+// Fix: Add isset check and use correct admin role ID
+if (!isset($_SESSION['rol_id']) || $_SESSION['rol_id'] !== 4) {
     echo "<div style='color:red; font-weight:bold;'>❌ Acceso restringido: solo administradores.</div>";
     exit;
 }
 
-$db = new Database();
+// Fix: Use Singleton pattern instead of direct constructor
+$db = Database::getInstance();
 $conn = $db->getConnection();
 
 $where = [];
@@ -34,9 +38,10 @@ if (!empty($_GET['hasta'])) {
 
 $whereClause = empty($where) ? '' : 'WHERE ' . implode(' AND ', $where);
 
-$query = "SELECT l.*, u.nombre AS nombre_usuario 
+$query = "SELECT l.*, CONCAT(dp.nombres, ' ', dp.apellidos) AS nombre_usuario 
           FROM logs_telemetria l 
           LEFT JOIN usuarios u ON u.id_usuario = l.id_usuario 
+          LEFT JOIN datos_personales dp ON u.id_datos_personales = dp.id_datos_personales
           $whereClause
           ORDER BY l.fecha DESC 
           LIMIT 100";

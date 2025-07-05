@@ -92,7 +92,6 @@ $mapaAcciones = [
     'info_clase_disponible' => ['DocenteController', [3, 4]],
     'estadisticas_docente' => ['DocenteController', [3, 4]],
     'alumnos' => ['DocenteController', [3]],
-    'reportes' => ['DocenteController', [3]],
     
     // Acciones de estudiante
     'solicitar_clase' => ['EstudianteController', [2]],
